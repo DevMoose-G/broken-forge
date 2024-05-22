@@ -1,0 +1,6 @@
+res://default_env.tres
+res://World.tscn
+res://PlayerCamera.gd
+res://World.gd
+res://Adventurer.gd
+res://Knife.gd

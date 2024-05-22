@@ -1,0 +1,825 @@
+[gd_scene load_steps=52 format=3 uid="uid://cnxgixrd5keo7"]
+
+[ext_resource type="Script" path="res://Anvil.gd" id="1"]
+[ext_resource type="PackedScene" path="res://Models/hammer_model.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://Table.tscn" id="3"]
+[ext_resource type="Script" path="res://PlayerCamera.gd" id="4"]
+[ext_resource type="PackedScene" path="res://Whetstone.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://Forge.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://Anvil.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://bwnn7nqusic85" path="res://Vol_7_1_Base_Color.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://ddx11fk4nblv6" path="res://WoodPlanksWorn33_COL_VAR1_1K.jpg" id="9"]
+[ext_resource type="Texture2D" uid="uid://hyu3favi6q52" path="res://DialogueBox.png" id="10"]
+[ext_resource type="FontFile" uid="uid://dxodpsy1e0mwy" path="res://Fonts/Indie_Flower/IndieFlower-Regular.ttf" id="11"]
+[ext_resource type="PackedScene" path="res://Models/door_model.tscn" id="12"]
+[ext_resource type="PackedScene" path="res://Models/counter_model.tscn" id="13"]
+[ext_resource type="Script" path="res://World.gd" id="14"]
+[ext_resource type="Texture2D" uid="uid://dk63edpw57hhv" path="res://downArrow.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://bpfy6jlh563yn" path="res://ClockFace.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://chcpp0mlyvq70" path="res://ClockHand.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://itha4brsfcfh" path="res://White64.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://cgguoebuws0ba" path="res://PowerBarBackground.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://d1x5810u7ijh" path="res://PowerBarForeground.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://c5o4nd3wg8swu" path="res://PowerBarInside.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://dhih1s317ivh1" path="res://GameIcon.png" id="22"]
+[ext_resource type="Texture2D" uid="uid://d2725np430vkp" path="res://SmokeFrames.png" id="23"]
+[ext_resource type="PackedScene" path="res://CopperIngot.tscn" id="24"]
+[ext_resource type="Texture2D" uid="uid://b6vfbehmhjkg7" path="res://CopperCost.png" id="25"]
+[ext_resource type="Script" path="res://StartScreen.gd" id="26"]
+[ext_resource type="PackedScene" path="res://KnifeCast.tscn" id="27"]
+[ext_resource type="AudioStream" uid="uid://bviwsf4lwvtkk" path="res://Music.mp3" id="28"]
+[ext_resource type="AudioStream" uid="uid://dvfdxs036ilcm" path="res://HeavyHammerClang.wav" id="29"]
+
+[sub_resource type="Environment" id="9"]
+background_mode = 1
+background_color = Color(0.360784, 0.360784, 0.360784, 1)
+
+[sub_resource type="StandardMaterial3D" id="10"]
+albedo_texture = ExtResource("8")
+
+[sub_resource type="StandardMaterial3D" id="5"]
+albedo_color = Color(1, 0.737255, 0.415686, 1)
+albedo_texture = ExtResource("9")
+
+[sub_resource type="BoxShape3D" id="2"]
+size = Vector3(15, 2, 15)
+
+[sub_resource type="StandardMaterial3D" id="16"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("23")
+billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+
+[sub_resource type="QuadMesh" id="17"]
+material = SubResource("16")
+
+[sub_resource type="Curve" id="18"]
+_data = [Vector2(0, 0.0636363), 0.0, 0.0, 0, 0, Vector2(0.199248, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="19"]
+albedo_texture = ExtResource("25")
+
+[sub_resource type="FontFile" id="11"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="15"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="3"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="6"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="4"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="7"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="8"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="13"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="14"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="20"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="12"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="23"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="21"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="22"]
+fallbacks = Array[Font]([ExtResource("11")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="World" type="Node3D"]
+script = ExtResource("14")
+
+[node name="Player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015, 1, 1.07015)
+
+[node name="PlayerCamera" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+environment = SubResource("9")
+script = ExtResource("4")
+
+[node name="Hammer" type="Node3D" parent="Player/PlayerCamera"]
+transform = Transform3D(0.944008, 0, 0.329921, 0, 1, 0, -0.329921, 0, 0.944008, 1.39698e-08, -0.436472, 0)
+
+[node name="hammer" parent="Player/PlayerCamera/Hammer" instance=ExtResource("2")]
+transform = Transform3D(0.999999, 0, 0, 0, -4.37113e-08, 0.999999, 0, -1, -4.37114e-08, -0.0213821, 0.156135, 0.434054)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Player/PlayerCamera/Hammer"]
+stream = ExtResource("29")
+volume_db = -3.0
+max_db = 1.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Player/PlayerCamera"]
+target_position = Vector3(0, 1.248, -4.744)
+
+[node name="Node3D" type="Node3D" parent="Player/PlayerCamera"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -0.226177)
+
+[node name="CSGBox2" type="CSGBox3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 7.5, 0)
+size = Vector3(1, 15, 15)
+material = SubResource("10")
+
+[node name="CSGBox3" type="CSGBox3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 7.5, 0)
+size = Vector3(1, 15, 15)
+material = SubResource("10")
+
+[node name="CSGBox4" type="CSGBox3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 8)
+size = Vector3(15, 15, 1)
+material = SubResource("10")
+
+[node name="CSGBox5" type="CSGBox3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, -8)
+size = Vector3(15, 15, 1)
+material = SubResource("10")
+
+[node name="Roof" type="CSGBox3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+visible = false
+size = Vector3(15, 1, 15)
+material = SubResource("10")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+size = Vector3(15, 1, 15)
+material = SubResource("5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("2")
+
+[node name="Table" parent="." instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+visible = false
+
+[node name="Whetstone" parent="." instance=ExtResource("5")]
+transform = Transform3D(0.754606, 0, -0.656178, 0, 1, 0, 0.656178, 0, 0.754606, 3.29812, 0, 6.14805)
+visible = false
+
+[node name="Forge" parent="." instance=ExtResource("6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.26931, 6.93798e-05, 3.01208)
+visible = false
+
+[node name="Flame" type="CPUParticles3D" parent="Forge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.723268, 0)
+amount = 200
+lifetime = 0.5
+randomness = 1.0
+draw_order = 2
+mesh = SubResource("17")
+emission_shape = 1
+emission_sphere_radius = 0.4
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_amount_curve = SubResource("18")
+
+[node name="CopperIngot" parent="Forge" instance=ExtResource("24")]
+
+[node name="KnifeCast" parent="Forge" instance=ExtResource("27")]
+transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, -1.29965, 1.88817, 1.06923)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Forge"]
+transform = Transform3D(4.37114e-08, -1, 4.37114e-08, 0, 4.37114e-08, 1, 1, 4.37114e-08, -1.91069e-15, 1.27288, 2.10639, 0.806662)
+size = Vector3(0.1, 1, 1)
+material = SubResource("19")
+
+[node name="Anvil" parent="." instance=ExtResource("7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2196, 1.4782e-05, 3.09457)
+script = ExtResource("1")
+
+[node name="Items" type="Node3D" parent="Anvil"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.000950336, 1.80366, -1.05303)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Coin" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 939.0
+offset_top = 164.0
+offset_right = 979.0
+offset_bottom = 204.0
+
+[node name="CoinBG" type="Sprite2D" parent="UI/Coin"]
+position = Vector2(-36, -40)
+scale = Vector2(0.0990742, 0.0620371)
+texture = ExtResource("10")
+centered = false
+
+[node name="CoinLabel" type="Label" parent="UI/Coin"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -9.0
+offset_right = 67.0
+offset_bottom = 39.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("11")
+text = "3200"
+
+[node name="AddedCoinLabel" type="Label" parent="UI/Coin"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -30.0
+offset_top = 20.0
+offset_right = 67.0
+offset_bottom = 68.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 0.984314, 0, 1)
+theme_override_fonts/font = SubResource("15")
+
+[node name="Time" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 948.0
+offset_top = 90.0
+offset_right = 988.0
+offset_bottom = 130.0
+
+[node name="ClockFace" type="Sprite2D" parent="UI/Time"]
+position = Vector2(0, -3)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("16")
+
+[node name="Hand" type="Control" parent="UI/Time"]
+anchors_preset = 0
+offset_left = -0.5
+offset_top = -2.0
+offset_right = 39.5
+offset_bottom = 38.0
+
+[node name="ClockHand" type="Sprite2D" parent="UI/Time/Hand"]
+position = Vector2(0.5, -21)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("17")
+
+[node name="Dialogue" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DialogueBox" type="Sprite2D" parent="UI/Dialogue"]
+position = Vector2(510, 359)
+scale = Vector2(0.951852, 0.442593)
+texture = ExtResource("10")
+
+[node name="DialogueLabel" type="Label" parent="UI/Dialogue"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 451.0
+offset_right = 991.0
+offset_bottom = 579.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("3")
+
+[node name="NameLabel" type="Label" parent="UI/Dialogue"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 412.0
+offset_right = 997.0
+offset_bottom = 456.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("6")
+clip_text = true
+
+[node name="Buttons" type="VBoxContainer" parent="UI/Dialogue"]
+layout_mode = 0
+offset_top = 524.0
+offset_right = 997.0
+offset_bottom = 588.0
+grow_horizontal = 0
+
+[node name="Accept" type="Button" parent="UI/Dialogue/Buttons"]
+clip_contents = true
+custom_minimum_size = Vector2(997, 24)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.623529, 1, 0.529412, 1)
+theme_override_colors/font_hover_color = Color(0.933333, 1, 0.470588, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = SubResource("4")
+text = "sure"
+flat = true
+
+[node name="Reject" type="Button" parent="UI/Dialogue/Buttons"]
+clip_contents = true
+custom_minimum_size = Vector2(997, 24)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.623529, 1, 0.529412, 1)
+theme_override_colors/font_hover_color = Color(0.933333, 1, 0.470588, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = SubResource("4")
+text = "no"
+flat = true
+
+[node name="DownArrow" type="Sprite2D" parent="UI/Dialogue"]
+visible = false
+position = Vector2(973, 570)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("15")
+
+[node name="PowerBar" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 51.0
+offset_bottom = 52.0
+scale = Vector2(0.8, 0.8)
+
+[node name="BG" type="Sprite2D" parent="UI/PowerBar"]
+visible = false
+position = Vector2(19, 22)
+scale = Vector2(1, 0.8)
+texture = ExtResource("19")
+centered = false
+
+[node name="Background" type="Sprite2D" parent="UI/PowerBar"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(17, 21.25)
+scale = Vector2(16.4531, 0.820312)
+texture = ExtResource("18")
+centered = false
+
+[node name="Inside" type="Control" parent="UI/PowerBar"]
+anchors_preset = 0
+offset_left = 22.0
+offset_top = 48.0
+offset_right = 62.0
+offset_bottom = 88.0
+scale = Vector2(1e-05, 1)
+
+[node name="Inside" type="Sprite2D" parent="UI/PowerBar/Inside"]
+visible = false
+position = Vector2(-1, -26)
+scale = Vector2(0.997, 0.8)
+texture = ExtResource("21")
+centered = false
+
+[node name="White64" type="Sprite2D" parent="UI/PowerBar/Inside"]
+position = Vector2(0, -20.5)
+scale = Vector2(16.2969, 0.625)
+texture = ExtResource("18")
+centered = false
+
+[node name="Outline" type="Sprite2D" parent="UI/PowerBar"]
+visible = false
+position = Vector2(19, 22)
+scale = Vector2(1, 0.8)
+texture = ExtResource("20")
+centered = false
+
+[node name="ReturnSword" type="Button" parent="UI"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(997, 24)
+offset_left = 15.0
+offset_top = 486.0
+offset_right = 1012.0
+offset_bottom = 528.0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.623529, 1, 0.529412, 1)
+theme_override_colors/font_hover_color = Color(0.933333, 1, 0.470588, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = SubResource("7")
+text = "Return Samwell's Sword"
+flat = true
+
+[node name="Work" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WorkingOn" type="Label" parent="UI/Work"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 107.0
+offset_right = 427.0
+offset_bottom = 149.0
+theme_override_colors/font_color = Color(0.862745, 0.686275, 0, 1)
+theme_override_fonts/font = SubResource("8")
+text = "Working on "
+
+[node name="Tooltip" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DialogueBox" type="Sprite2D" parent="UI/Tooltip"]
+position = Vector2(-3, -67)
+scale = Vector2(0.287963, 0.107407)
+texture = ExtResource("10")
+centered = false
+
+[node name="Label" type="Label" parent="UI/Tooltip"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 403.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = SubResource("13")
+
+[node name="Feedback" type="Control" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Accuracy" type="Label" parent="UI/Feedback"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("14")
+
+[node name="Power" type="Label" parent="UI/Feedback"]
+layout_mode = 0
+offset_top = 49.0
+offset_right = 154.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("14")
+
+[node name="BuyEquipment" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="UI/BuyEquipment"]
+layout_mode = 0
+offset_top = 426.0
+offset_right = 1024.0
+offset_bottom = 517.0
+theme_override_fonts/font = SubResource("20")
+text = "Purchase Forge for 200 coins"
+flat = true
+
+[node name="EndScreen" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="White64" type="Sprite2D" parent="UI/EndScreen"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(16.2031, 9.53125)
+texture = ExtResource("18")
+centered = false
+
+[node name="DayLabel" type="Label" parent="UI/EndScreen"]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 1026.0
+offset_bottom = 109.0
+theme_override_fonts/font = SubResource("12")
+text = "End Of Day 1"
+
+[node name="Revenue" type="Control" parent="UI/EndScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RevenueLabel" type="Label" parent="UI/EndScreen/Revenue"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 122.0
+offset_right = 472.0
+offset_bottom = 175.0
+theme_override_fonts/font = SubResource("12")
+text = "Revenue"
+
+[node name="Revenue" type="Label" parent="UI/EndScreen/Revenue"]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 122.0
+offset_right = 887.0
+offset_bottom = 175.0
+grow_horizontal = 0
+theme_override_fonts/font = SubResource("12")
+
+[node name="Ores" type="Control" parent="UI/EndScreen"]
+anchors_preset = 0
+offset_top = 77.0
+offset_right = 40.0
+offset_bottom = 117.0
+
+[node name="Ores" type="Label" parent="UI/EndScreen/Ores"]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 234.0
+offset_right = 887.0
+offset_bottom = 287.0
+grow_horizontal = 0
+theme_override_fonts/font = SubResource("12")
+
+[node name="OresLabel" type="Label" parent="UI/EndScreen/Ores"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 234.0
+offset_right = 472.0
+offset_bottom = 287.0
+theme_override_fonts/font = SubResource("12")
+text = "Ingots"
+
+[node name="Rent" type="Control" parent="UI/EndScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Rent" type="Label" parent="UI/EndScreen/Rent"]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 178.0
+offset_right = 887.0
+offset_bottom = 231.0
+grow_horizontal = 0
+theme_override_fonts/font = SubResource("12")
+
+[node name="RentLabel" type="Label" parent="UI/EndScreen/Rent"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 178.0
+offset_right = 472.0
+offset_bottom = 231.0
+theme_override_fonts/font = SubResource("12")
+text = "Rent"
+
+[node name="Equipment" type="Control" parent="UI/EndScreen"]
+anchors_preset = 0
+offset_top = 65.0
+offset_right = 40.0
+offset_bottom = 105.0
+
+[node name="Equipment" type="Label" parent="UI/EndScreen/Equipment"]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 178.0
+offset_right = 887.0
+offset_bottom = 231.0
+grow_horizontal = 0
+theme_override_fonts/font = SubResource("12")
+
+[node name="EquipmentLabel" type="Label" parent="UI/EndScreen/Equipment"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 178.0
+offset_right = 472.0
+offset_bottom = 231.0
+theme_override_fonts/font = SubResource("12")
+text = "Equipment"
+
+[node name="Profit" type="Control" parent="UI/EndScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Profit" type="Label" parent="UI/EndScreen/Profit"]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 473.0
+offset_right = 887.0
+offset_bottom = 526.0
+grow_horizontal = 0
+theme_override_fonts/font = SubResource("12")
+
+[node name="ProfitLabel" type="Label" parent="UI/EndScreen/Profit"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 473.0
+offset_right = 472.0
+offset_bottom = 526.0
+theme_override_fonts/font = SubResource("12")
+text = "Profit"
+
+[node name="StartScreen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("26")
+
+[node name="White64" type="Sprite2D" parent="UI/StartScreen"]
+modulate = Color(0.996078, 1, 0.568627, 1)
+position = Vector2(508.5, 302)
+scale = Vector2(16.3594, 9.90625)
+texture = ExtResource("18")
+
+[node name="GameIcon" type="Sprite2D" parent="UI/StartScreen"]
+position = Vector2(512, 190)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("22")
+
+[node name="StartButton" type="Button" parent="UI/StartScreen"]
+layout_mode = 0
+offset_top = 364.0
+offset_right = 1025.0
+offset_bottom = 441.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("23")
+text = "Start"
+flat = true
+
+[node name="CreditsButton" type="Button" parent="UI/StartScreen"]
+layout_mode = 0
+offset_top = 437.0
+offset_right = 1025.0
+offset_bottom = 514.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("23")
+text = "Credits"
+flat = true
+
+[node name="Credits" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -15.0
+offset_top = -2.0
+offset_right = 25.0
+offset_bottom = 38.0
+
+[node name="White64" type="Sprite2D" parent="UI/Credits"]
+modulate = Color(0.996078, 1, 0.568627, 1)
+position = Vector2(531, 307)
+scale = Vector2(16.4219, 9.92188)
+texture = ExtResource("18")
+
+[node name="Label" type="Label" parent="UI/Credits"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 2.0
+offset_right = 1041.0
+offset_bottom = 605.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("21")
+text = "Developed and Designed by Muse Gimicael of Tres Leches
+
+Forge Parts by Don Carson [CC-BY] via Poly Pizza
+Forge by Don Carson [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/2ZnLsJJL4Pe)
+\"Virtutes Instrumenti\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+\"Minstrel Guild\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+Sound Effect from <a href=\"https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=100473\">Pixabay</a>"
+
+[node name="Button" type="Button" parent="UI/Credits"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 19.0
+offset_right = 94.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("22")
+text = "Back"
+flat = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39176, 5.05009, 0)
+light_color = Color(1, 0.976471, 0.623529, 1)
+light_energy = 4.436
+omni_range = 12.382
+
+[node name="counter" parent="." instance=ExtResource("13")]
+transform = Transform3D(1, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 0, 0, 0)
+
+[node name="door" parent="." instance=ExtResource("12")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, -0.51934, -8.05005)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28")
+autoplay = true
+
+[connection signal="pressed" from="UI/StartScreen/StartButton" to="UI/StartScreen" method="_on_StartButton_pressed"]
+[connection signal="pressed" from="UI/StartScreen/CreditsButton" to="UI/StartScreen" method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="UI/Credits/Button" to="." method="_on_Button_pressed"]

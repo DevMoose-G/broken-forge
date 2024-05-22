@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Knife.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape3D" id=1]
+extents = Vector3( 0.148485, 1.53143, 0.0436721 )
+
+[sub_resource type="BoxShape3D" id=2]
+extents = Vector3( 0.325551, 0.114044, 0.0436721 )
+
+[sub_resource type="CapsuleShape3D" id=3]
+radius = 0.175
+height = 0.001
+
+[node name="Knife_Broken1" type="StaticBody3D"]
+transform = Transform3D( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+script = ExtResource( 2 )
+damaged_nodes = [ NodePath("Area3D"), NodePath("Area2"), NodePath("Area3"), NodePath("Area4") ]
+power_needed_damage = [ 0.5, 0.75, 0.5, 0.25 ]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.861794, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.606456, 0 )
+shape = SubResource( 2 )
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0811113, 1.0081, 0 )
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource( 3 )
+
+[node name="Area2" type="Area3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0994335, 1.17001, 0 )
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area2"]
+shape = SubResource( 3 )
+
+[node name="Area3" type="Area3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0962, 1.69896, 0 )
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3"]
+shape = SubResource( 3 )
+
+[node name="Area4" type="Area3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11289, 1.78302, 0 )
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area4"]
+shape = SubResource( 3 )

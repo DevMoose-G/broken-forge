@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/table_model.tscn" type="PackedScene" id=1]
+
+[sub_resource type="BoxShape3D" id=1]
+extents = Vector3( 0.594288, 0.631644, 1.51798 )
+
+[node name="Table" type="StaticBody3D"]
+
+[node name="table" parent="." instance=ExtResource( 1 )]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0475435, 0.631644, 0.135838 )
+shape = SubResource( 1 )
